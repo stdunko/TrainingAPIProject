@@ -1,0 +1,33 @@
+services:
+
+    trainingapi:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "80:80"
+        container_name: trainingapi
+        depends_on:
+            - db
+    filler:
+        build:
+          context: ..
+          dockerfile: /TrainingAPIFiller/Dockerfile
+        depends_on:
+          - db
+        command: ["dotnet", "TrainingAPIFiller.dll"]
+
+    db:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        container_name: trainngapidb
+        environment:
+          ACCEPT_EULA: "Y"
+          MSSQL_PID: "Evaluation"
+          MSSQL_SA_PASSWORD: "1234567Qq"
+        ports:
+          - "1433:1433"
+        volumes:
+          - trainngapidbdata:/var/opt/mssql
+volumes:
+    trainngapidbdata:
+    

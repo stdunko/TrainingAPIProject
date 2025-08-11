@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "af22292e-4904-40d5-8b3c-2ff086a6ea56",
+		"name": "Patient API Collection",
+		"description": "Collection for testing PatientController endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8883657"
+	},
+	"item": [
+		{
+			"name": "Get All Patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/patient",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/patient/{id}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"patient",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"name\": {\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"patientId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"use\": \"string\",\n    \"family\": \"string\",\n    \"givenSerialized\": \"string\",\n    \"given\": [\n      \"string\"\n    ]\n  },\n  \"gender\": \"Male\",\n  \"birthDate\": \"2025-08-07T15:10:11.590Z\",\n  \"active\": \"True\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/patient",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Patient",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"gender\": \"Male\",\n  \"birthDate\": \"2025-08-07T15:57:28.104Z\",\n  \"active\": \"False\",\n  \"name\": {\n    \"use\": \"string\",\n    \"family\": \"string\",\n    \"given\": [\n      \"string\"\n    ]\n  }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/patient/{id}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"patient",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/patient/{id}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"patient",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:80"
+		}
+	]
+}
